@@ -172,8 +172,8 @@ A comprehensive Laravel-based IELTS Mock Test Management System that allows admi
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd mocktest
+git clone https://github.com/labib108/lexicon-ielts-mocktest.git
+cd lexicon-ielts-mocktest
 ```
 
 ### 2. Install PHP Dependencies
@@ -211,8 +211,8 @@ DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=mocktest
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
+DB_USERNAME=root
+DB_PASSWORD=
 ```
 
 ### 6. Run Migrations
@@ -408,190 +408,6 @@ mocktest/
 3. **Submission**: Submit answers for each section
 4. **Results**: View results after admin grading
 
-## 🛣 API Routes
-
-### Web Routes
-
-#### Admin Routes (Protected by `auth` and `user-access:Admin` middleware)
-
-- `GET /admin/mocktests` - List all mock tests
-- `GET /admin/mocktests/{mockTest}/user-info` - Show user registration form
-- `POST /admin/mocktests/{mockTest}/user-info` - Save user registration
-- `GET /admin/test/dashboard/{mockTest}` - Test dashboard
-- `GET /admin/listening/{mockTest}` - Show listening questions
-- `POST /admin/listening/{mockTest}` - Store listening answers
-- `GET /admin/listening/result/{mockTest}` - Show listening results
-- `GET /admin/reading/{mockTest}` - Show reading questions
-- `POST /admin/reading/{mockTest}` - Store reading answers
-- `GET /admin/reading/result/{mockTest}` - Show reading results
-- `GET /admin/writing/{mockTest}` - Show writing questions
-- `POST /admin/writing/{mockTest}` - Store writing answers
-- `GET /admin/result/{mockTest}` - Show complete results
-- `GET /admin/writing/{mockTest}/show` - Show writing answers
-- `GET /admin/mocktest-result` - List all test results
-- `GET /admin/mocktest/score/update` - Show score update form
-- `POST /admin/mocktest/score/update` - Update scores
-- `GET /admin/student-list` - List all students
-- `GET /admin/mocktest/result` - Show results to send
-- `POST /result/{user}/send-mail` - Send result email
-
-#### Authenticated Routes
-
-- `GET /dashboard` - User dashboard
-- `GET /users` - List users (resource routes)
-- `PUT /profile-update/{id}` - Update user profile
-- `PUT /profile-password-reset/{id}` - Reset password
-
-### API Routes
-
-- `GET /api/user` - Get authenticated user (Sanctum protected)
-
-## 🔗 Models and Relationships
-
-### Core Models
-
-#### MockTest
-- `hasMany` Section
-- `hasMany` TestUser
-
-#### Section
-- `belongsTo` MockTest
-- `hasMany` QuestionGroup
-- `hasMany` UserScore
-- `hasMany` UserAnswer
-- `hasMany` UserWritingAnswer
-
-#### QuestionGroup
-- `belongsTo` Section
-- `hasMany` Question
-- `hasOne` ReadingPassage (optional)
-- `hasOne` WritingPassage (optional)
-- `hasMany` UserWritingAnswer
-
-#### Question
-- `belongsTo` QuestionGroup
-- `hasMany` QuestionOption
-- `hasMany` QuestionAnswer
-- `hasMany` UserAnswer
-
-#### QuestionOption
-- `belongsTo` Question
-- `hasMany` QuestionAnswer
-- `hasMany` UserAnswer
-
-#### TestUser
-- `belongsTo` MockTest
-- `hasMany` UserAnswer
-- `hasMany` UserWritingAnswer
-- `hasMany` UserScore
-- `hasOne` WsScore
-
-#### UserAnswer
-- `belongsTo` TestUser
-- `belongsTo` MockTest
-- `belongsTo` Section
-- `belongsTo` Question
-- `belongsTo` QuestionOption
-
-#### UserWritingAnswer
-- `belongsTo` TestUser
-- `belongsTo` Section
-- `belongsTo` QuestionGroup
-
-#### UserScore
-- `belongsTo` TestUser (logical)
-- `belongsTo` Section (logical)
-
-#### WsScore
-- `belongsTo` TestUser
-
-## 📊 Scoring System
-
-### Automated Scoring (Listening & Reading)
-
-Scores are calculated based on correct answers:
-- System compares `user_answers` with `question_answers`
-- Calculates correct count per section
-- Stores result in `user_scores` table
-- Uses IELTS band conversion (0-9 scale)
-
-**Band Conversion Example**:
-- 39+ correct → Band 9
-- 37-38 correct → Band 8.5
-- 35-36 correct → Band 8
-- ... (see controller for full conversion table)
-
-### Manual Scoring (Writing & Speaking)
-
-- Admin reviews `user_writing_answers`
-- Manually assigns scores (0-9) for Writing and Speaking
-- Scores stored in `ws_scores` table
-- Can be updated via admin interface
-
-## 🧪 Development
-
-### Running Tests
-
-```bash
-php artisan test
-```
-
-### Code Style
-
-The project uses Laravel Pint for code formatting:
-
-```bash
-./vendor/bin/pint
-```
-
-### Database Migrations
-
-Create a new migration:
-
-```bash
-php artisan make:migration create_table_name
-```
-
-Run migrations:
-
-```bash
-php artisan migrate
-```
-
-Rollback migrations:
-
-```bash
-php artisan migrate:rollback
-```
-
-### Creating Models
-
-```bash
-php artisan make:model ModelName
-```
-
-### Creating Controllers
-
-```bash
-php artisan make:controller ControllerName
-```
-
-## 🔒 Security Features
-
-- Authentication via Laravel UI
-- Role-based access control (Admin/User)
-- Password hashing
-- CSRF protection
-- SQL injection prevention (Eloquent ORM)
-- XSS protection (Blade templating)
-
-## 📝 Notes
-
-- Question types support flexible metadata via JSON field
-- Media files should be uploaded to `public/assets/` directories
-- Session-based test tracking for test takers
-- Email functionality requires proper mail configuration
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -600,19 +416,9 @@ php artisan make:controller ControllerName
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
 ## 👥 Authors
 
-- Your Name/Organization
-
-## 🙏 Acknowledgments
-
-- Laravel Framework
-- Bootstrap
-- All contributors and testers
+- Labib
 
 ---
 
