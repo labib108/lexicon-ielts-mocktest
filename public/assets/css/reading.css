@@ -1,0 +1,117 @@
+
+/* =========================
+   Modal
+========================= */
+.btn-gradient {
+  background: linear-gradient(90deg, #4b24f8, #31a2ff);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+}
+.modal-content {
+  border: none;
+  border-radius: 16px;
+}
+
+.modal-title {
+  color: #ff0000;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+.highlight-question {
+    border: 2px solid #0d6efd;
+    padding: 2px;
+    transition: all 0.5s ease;
+}
+
+
+/* =========================
+   Part Navigation
+========================= */
+.part-nav {
+  border-radius: 8px;
+  background: #f4f4fa;
+  text-align: center;
+  flex: 1;
+  /* fills available space */
+  min-width: 200px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.part-nav.active {
+  background: #cbe2f5;
+}
+
+.part-nav.active .part-label {
+  color: rgba(255, 0, 0, 0.7);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.part-nav .part-label {
+  display: block;
+  font-size: 0.95rem;
+  color: #000;
+}
+
+.part-nav .questions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24px, 1fr));
+  gap: 4px;
+  justify-items: center;
+  width: 100%;
+  max-width: 100%;
+
+}
+.part-nav .question-btn {
+  width: 100%;          /* auto-fit grid cell */
+  max-width: 32px;      /* normal size */
+  min-width: 20px;      /* shrink when many */
+  height: auto;
+  aspect-ratio: 1 / 1;  /* keep square */
+  padding: 0;
+  font-size: 0.75rem;
+}
+
+.question-btn.answered-btn {
+  border-top: 4px solid #d78e07 !important;
+  background: #fff;
+}
+
+/* =========================
+   Question
+========================= */
+
+.custom-radio {
+    width: 20px;       
+    height: 20px;      
+    accent-color: #4CAF50; 
+    margin-right: 10px;
+}
+
+.custom-select {
+    width: 120px;
+    height: 50px;
+    display: inline;
+}
+
+.custom-checkbox {
+    width: 20px;       
+    height: 20px;
+    margin-right: 10px;
+}
+
+
+

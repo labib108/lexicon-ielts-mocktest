@@ -1,0 +1,140 @@
+
+/* =========================
+   Modal
+========================= */
+.btn-gradient {
+  background: linear-gradient(90deg, #18b82e, #06770b);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+}
+.modal-content {
+  border: none;
+  border-radius: 16px;
+}
+
+.modal-title {
+  color: #010a83;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+
+
+/* =========================
+   Part Navigation
+========================= */
+.part-nav {
+  border-radius: 8px;
+  background: #faf4f4;
+  text-align: center;
+  flex: 1;
+  /* fills available space */
+  min-width: 200px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.part-nav.active {
+  background: #cbe2f5;
+}
+
+.part-nav.active .part-label {
+  color: rgba(255, 0, 0, 0.7);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.part-nav .part-label {
+  display: block;
+  font-size: 0.95rem;
+  color: #000;
+}
+
+
+
+
+/* =========================
+   Split Container (Reading & Writing)
+========================= */
+.split-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  gap: 5px;
+}
+
+.split {
+  flex-grow: 0;
+  /* disable auto growth */
+  width: 50%;
+  /* initially 50% */
+  overflow-y: auto;
+  padding: 1rem;
+  transition: width 0.2s ease;
+  min-width: 20%;
+  max-width: 80%;
+}
+
+.left-pane {
+  border-right: 1px solid #ddd;
+  position: relative;
+}
+
+.right-pane {}
+
+.divider {
+  width: 10px;
+  cursor: col-resize;
+  position: relative;
+  z-index: 10;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider::before {
+  content: "\2630";
+  /* hamburger icon */
+  font-size: 18px;
+  color: #888;
+  transform: rotate(90deg);
+}
+
+/* Answer Box */
+.answer-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.answer-textarea {
+  width: 100%;
+  flex-grow: 1;
+  min-height: 200px;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.word-count {
+  text-align: right;
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
+}
